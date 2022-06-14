@@ -1,6 +1,23 @@
 const RouteView = {
   name: 'RouteView',
-  render: (h) => h('router-view')
+  props: {
+    keepAlive: {
+      type: Boolean,
+      default: true
+    }
+  },
+  render () {
+    const { $route: { meta } } = this
+    const inKeep = (
+      <keep-alive>
+        <router-view />
+      </keep-alive>
+    )
+    const notKeep = (
+      <router-view />
+    )
+    return this.keepAlive || meta.keepAlive ? inKeep : notKeep
+  }
 }
 
 export default RouteView
