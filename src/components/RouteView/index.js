@@ -3,7 +3,7 @@ const RouteView = {
   props: {
     keepAlive: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   render () {
